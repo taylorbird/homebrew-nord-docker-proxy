@@ -1,6 +1,6 @@
 cask "nord-docker-proxy" do
-  version "0.1.1"
-  sha256 "5c9d463589f3954ed23e303edc90767e4b1b0c30bd2c1574293695ac3a6ac97d"
+  version "0.2.0"
+  sha256 "6a16e67576de2d62c9afe75ad7bd98d7a440a8f8b8188cc4e7240b80e4a7946d"
 
   url "https://github.com/taylorbird/nord-docker-proxy/releases/download/v#{version}/nord-docker-proxy-#{version}.zip"
   name "Nord Docker Proxy"
