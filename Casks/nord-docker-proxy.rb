@@ -4,7 +4,7 @@ cask "nord-docker-proxy" do
 
   url "https://github.com/taylorbird/nord-docker-proxy/releases/download/v#{version}/nord-docker-proxy-#{version}.zip"
   name "Nord Docker Proxy"
-  desc "NordLayer in Docker, exposed to the Mac as a local SOCKS5 proxy"
+  desc "NordLayer in Docker, exposed as local SOCKS5 and HTTP proxies"
   homepage "https://github.com/taylorbird/nord-docker-proxy"
 
   livecheck do
@@ -13,7 +13,7 @@ cask "nord-docker-proxy" do
   end
 
   depends_on arch: :arm64
-  depends_on macos: ">= :sequoia"
+  depends_on macos: :sequoia
 
   app "Nord Docker Proxy.app"
   binary "#{appdir}/Nord Docker Proxy.app/Contents/Resources/nord-docker-proxy/bin/nord-docker-proxy"
@@ -23,12 +23,12 @@ cask "nord-docker-proxy" do
   zap trash: "~/.config/nord-docker-proxy"
 
   caveats <<~EOS
-    Requires Docker Desktop, running. Then:
+    Requires a running Docker engine (Docker Desktop or OrbStack). Then:
 
       nord-docker-proxy setup
 
     `brew uninstall --zap` removes the config but not the Docker volume holding
-    your NordLayer login or the Keychain item holding the proxy password; run
-    `nord-docker-proxy logout` first to end the session and delete the login.
+    your NordLayer login; run `nord-docker-proxy logout` first to end the
+    session and delete the login.
   EOS
 end
